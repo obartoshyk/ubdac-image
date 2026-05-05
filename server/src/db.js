@@ -27,4 +27,12 @@ export async function initDb() {
     CREATE UNIQUE INDEX IF NOT EXISTS users_google_id_key
     ON users(google_id) WHERE google_id IS NOT NULL
   `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS stripe_sessions (
+      session_id VARCHAR(255) PRIMARY KEY,
+      user_id    INTEGER NOT NULL REFERENCES users(id),
+      amount     NUMERIC(15,2) NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `);
 }

@@ -46,8 +46,14 @@ export function AuthProvider({ children }) {
     setUser(null);
   }
 
+  function refresh() {
+    const token = localStorage.getItem('token');
+    if (token) return fetchUser(token);
+    return Promise.resolve();
+  }
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, refresh }}>
       {children}
     </AuthContext.Provider>
   );

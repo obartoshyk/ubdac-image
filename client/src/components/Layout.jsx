@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useLang } from '../context/LangContext.jsx';
 import LangSwitcher from './LangSwitcher.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
+
+const fmtBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
 export default function Layout({ children }) {
   const { user, logout } = useAuth();
@@ -30,6 +33,11 @@ export default function Layout({ children }) {
 
         <div className="header-right" ref={dropRef}>
           <LangSwitcher />
+          <ThemeToggle />
+
+          <Link to="/account" className="header-balance">
+            {fmtBalance.format(user?.balance ?? 0)}
+          </Link>
 
           <button
             className="avatar-btn"

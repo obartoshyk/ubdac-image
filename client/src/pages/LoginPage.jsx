@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 import { useLang } from '../context/LangContext.jsx';
 import GoogleIcon from '../components/GoogleIcon.jsx';
 import LangSwitcher from '../components/LangSwitcher.jsx';
+import ThemeToggle from '../components/ThemeToggle.jsx';
 
 export default function LoginPage() {
   const nav = useNavigate();
@@ -39,6 +40,7 @@ export default function LoginPage() {
       <div className="card">
         <div className="lang-bar">
           <LangSwitcher />
+          <ThemeToggle />
         </div>
 
         <div className="logo">

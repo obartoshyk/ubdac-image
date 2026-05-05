@@ -5,6 +5,13 @@
     <link rel="icon" href="/PorosenokPetr.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ubdac Soft Limited</title>
+    <script>
+      // Apply saved theme before first paint to avoid flash
+      document.documentElement.setAttribute(
+        'data-theme',
+        localStorage.getItem('theme') || 'light'
+      );
+    </script>
   </head>
   <body>
     <div id="root"></div>
