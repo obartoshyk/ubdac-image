@@ -1,3 +1,14 @@
+# Environment
+.env
+
+# Local secrets (Google OAuth и др.) — не коммитить
+env-secrets/*
+!env-secrets/.gitkeep
+
+# dev.sh runtime
+.pids/
+.logs/
+
 # Logs
 logs
 *.log
